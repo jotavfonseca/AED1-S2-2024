@@ -34,7 +34,7 @@ int empty(pilha *top){
     return top == NULL;
 }
 
-int cortarDiamantes(char* mina){
+int contarDiamantes(char* mina){
     pilha *top = NULL;
     int cont = 0;
     for (int i = 0; i < strlen(mina); i++){
