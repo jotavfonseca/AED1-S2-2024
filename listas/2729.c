@@ -1,13 +1,11 @@
 #include <stdio.h>
 
-// DECLARAR UMA STRUCT PARA SER O NO //
 typedef struct Node
 {
     char data[21];
-    struct Node* next;  // VARIAVEL NEXT COM ENDEREÇO DO PROXIMO NO
+    struct Node* next;  
 } Node;
 
-// FUNCAO QUE CRIA 
 Node* createNode(char* data) { 
     Node* newNode = (Node*)malloc(sizeof(Node)); 
     strcpy(newNode->data, data);
