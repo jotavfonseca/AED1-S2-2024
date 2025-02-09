@@ -8,12 +8,10 @@ int main(){
         if(M == 0 && T == 0)
             break;
         
-        // Aloca os arrays para as notas da música e do trecho.
         int *melody = (int*) malloc(M * sizeof(int));
         int *snippet = (int*) malloc(T * sizeof(int));
         char note[4]; // as notas têm no máximo 2 caracteres (mais o '\0')
         
-        // Lê as notas da música e converte para valores inteiros (0 a 11).
         for (int i = 0; i < M; i++){
             scanf("%s", note);
             int val = 0;
@@ -36,7 +34,6 @@ int main(){
             melody[i] = val;
         }
         
-        // Lê as notas do trecho suspeito e converte.
         for (int i = 0; i < T; i++){
             scanf("%s", note);
             int val = 0;
@@ -59,7 +56,6 @@ int main(){
             snippet[i] = val;
         }
         
-        // Se o trecho tem apenas uma nota, ele ocorre (pois basta transpor para qualquer nota).
         if(T == 1){
             printf("S\n");
             free(melody);
@@ -67,7 +63,6 @@ int main(){
             continue;
         }
         
-        // Cria os vetores de intervalos para a música e para o trecho.
         int mIntLen = M - 1;
         int tIntLen = T - 1;
         int *mIntervals = (int*) malloc(mIntLen * sizeof(int));
@@ -82,7 +77,6 @@ int main(){
             tIntervals[i] = (diff % 12 + 12) % 12;
         }
         
-        // Aplica o algoritmo KMP para procurar se tIntervals ocorre em mIntervals.
         int *pi = (int*) malloc(tIntLen * sizeof(int));
         pi[0] = 0;
         for (int i = 1; i < tIntLen; i++){
